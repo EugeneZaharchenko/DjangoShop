@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True)
+    name = models.CharField(max_length=200, db_index=True, verbose_name='наименование')
+    slug = models.SlugField(max_length=200, db_index=True, unique=True, verbose_name='краткое наименование')
 
     class Meta:
         ordering = ('name',)
