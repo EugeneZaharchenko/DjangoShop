@@ -37,15 +37,15 @@
                     </form>
                 </td>
                 <td><a href="{% url "cart:cart_remove" product.id %}">Удалить</a></td>
-                <td class="num">${{ item.price }}</td>
-                <td class="num">${{ item.total_price }}</td>
+                <td class="num">{{ item.price }}гр</td>
+                <td class="num">{{ item.total_price }}гр</td>
             </tr>
             {% endwith %}
         {% endfor %}
         <tr class="total">
             <td>Всего</td>
             <td colspan="4"></td>
-            <td class="num">${{ cart.get_total_price }}</td>
+            <td class="num">{{ cart.get_total_price }}гр</td>
         </tr>
         </tbody>
     </table>
