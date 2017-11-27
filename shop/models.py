@@ -19,14 +19,14 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products')
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    category = models.ForeignKey(Category, related_name='products', verbose_name='Категория')
+    name = models.CharField(max_length=200, db_index=True, verbose_name='Наименование')
+    slug = models.SlugField(verbose_name='Краткое описание' ,max_length=200, db_index=True)
+    image = models.ImageField('Фото',upload_to='products/%Y/%m/%d', blank=True)
+    description = models.TextField(verbose_name='Описание товара' ,blank=True)
+    price = models.DecimalField(verbose_name='цена',max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(verbose_name='акция')
-    available = models.BooleanField(default=True)
+    available = models.BooleanField(verbose_name='наличие' ,default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
