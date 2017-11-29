@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'paypal.standard.ipn',
     'payment',
+    'bootstrap3',
     'shop',
     'cart',
     'orders',
