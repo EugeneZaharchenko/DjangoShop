@@ -7,14 +7,15 @@
     {% if form.errors %}
         <p>Ваши имя или пароль не совпали. Пожалуйста, попробуйте еще раз</p>
     {% else %}
-{#        <p>Используйте эту форму для регистрации, пожалуйста <a href="{% url "register" %}">регистрация</a></p>#}
+        <p>Используйте эту форму для  <a href="{% url "shop:register" %}">регистрации</a></p>
     {% endif %}
     
     <div class="login-form">
-        <form action="{% url "login" %}" method="post">
+        <form action="{% url "shop:login" %}" method="post">
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
+{#            {% if site_name=="" %} {% endif %}#}
             <p><input type="submit" value="Log-in"></p>
         </form>
 {#        <p><a href="{% url "password_reset" %}">Забыли пароль?</a></p>#}

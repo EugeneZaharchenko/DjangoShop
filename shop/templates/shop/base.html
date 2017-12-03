@@ -13,10 +13,16 @@
 <body>
     <div id="header">
         <a href="/" class="logo">Джанго-ШОП</a>
+
+    <div id="register">
+        {% if request.user.is_anonymous %}
+            <a href="{% url "shop:register" %}">Зарегистрироваться</a>
+        {% endif %}
+    </div>
         {% if request.user.is_authenticated %}
             <ul class="menu">
                 <li>Добрый день, {{ request.user.username }}</li>
-                <li><a href="{% url "logout" %}">Выйти</a></li>
+                <li><a href="{% url "shop:logout" %}">Выйти</a></li>
             </ul>
             {% endif %}
     </div>

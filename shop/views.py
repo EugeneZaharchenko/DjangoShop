@@ -3,7 +3,7 @@ from .models import Category, Product
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
+from .forms import LoginForm, UserRegistrationForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from cart.forms import CartAddProductForm
 from django.contrib.auth.decorators import login_required
@@ -18,7 +18,8 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('../cart/templates/cart/detail.html')
+                    return HttpResponse('Авторизация успешна')
+                    # return HttpResponseRedirect('../cart/templates/cart/detail.html')
                 else:
                     return HttpResponse('Пользователь отсутствует')
             else:
@@ -31,33 +32,32 @@ def user_login(request):
 @login_required
 def logout_view(request):
     logout(request)
-    HttpResponseRedirect('base.html')
+    HttpResponseRedirect('shop/base.html')
 
 # @login_required
 # def dashboard(request):
 #     return render(request, 'registration/dashboard.html', {'section': 'dashboard'})
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         user_form = UserRegistrationForm(request.POST)
-#
-#         if user_form.is_valid():
-#             # Create a new user object but avoid saving it yet
-#             new_user = user_form.save(commit=False)
-#             # Set the chosen password
-#             new_user.set_password(user_form.cleaned_data['password'])
-#             # Save the User object
-#             new_user.save()
-#             # Create the user profile
-#             profile = Profile.objects.create(user=new_user)
-#             return render(request,
-#                           'account/register_done.html',
-#                           {'new_user': new_user})
-#     else:
-#         user_form = UserRegistrationForm()
-#     return render(request, 'account/register.html', {'user_form': user_form})
-#
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+            # Set the chosen password
+            new_user.set_password(user_form.cleaned_data['password'])
+            # Save the User object
+            new_user.save()
+            # Create the user profile
+            return render(request,
+                          'shop/register_done.html',
+                          {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'shop/register.html', {'user_form': user_form})
+
 
 def product_list(request, category_slug=None):
     category = None

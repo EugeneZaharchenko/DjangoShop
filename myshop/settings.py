@@ -114,6 +114,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-LOGIN_REDIRECT_URL = 'shop'
-LOGIN_URL = 'login'
-LOGOUT_URL = reverse_lazy('logout')
+LOGIN_REDIRECT_URL = 'login'
+LOGIN_URL = reverse_lazy('shop:login')
+LOGOUT_URL = reverse_lazy('shop:logout')

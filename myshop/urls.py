@@ -11,8 +11,8 @@ urlpatterns = [
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^payment/', include('payment.urls', namespace='payment')),
-    url(r'^login/$', login, name='login'),
-    url(r'^logout/$', logout, name='logout'),
+    # url(r'^login/$', login, name='login'),
+
     url(r'^logout-then-login/$', logout_login, name='logout_then_login'),
     url(r'^', include('shop.urls', namespace='shop'), ),
 ]
