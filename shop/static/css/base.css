@@ -193,6 +193,10 @@ ul.errorlist {
     overflow:hidden;
 }
 
+.product-list {
+    margin-bottom: 15vh;
+}
+
 .product-list .item {
     width:25%;
     padding:10px 20px 10px 0;
@@ -229,6 +233,26 @@ ul.errorlist {
 .product-detail h2 {
     margin-top:10px;
 }
+
+.pagination {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /*position: sticky !important;*/
+    /*bottom: 1vh !important;*/
+    /*display: none !important;*/
+}
+
+.pagination .step-links {
+    display: block;
+    /*flex-direction: column;*/
+    /*justify-content: ;*/
+}
+
+/*.step-links .current {*/
+    /*align-items: center;*/
+/*}*/
 
 .order-form {
     float:left;

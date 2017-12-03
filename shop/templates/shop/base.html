@@ -15,9 +15,8 @@
         <a href="/" class="logo">Джанго-ШОП</a>
         {% if request.user.is_authenticated %}
             <ul class="menu">
-                <li>Hello {{ request.user.first_name }}</li>
-                <li></li>
-                <li></li>
+                <li>Добрый день, {{ request.user.username }}</li>
+                <li><a href="{% url "logout" %}">Выйти</a></li>
             </ul>
             {% endif %}
     </div>
@@ -27,7 +26,7 @@
                 {% if cart|length > 0 %}
                     Ваша корзина:
                     <a href="{% url "cart:cart_detail" %}">
-                        {{ total_items }} штук{{ total_items|pluralize }},{{ cart.get_total_price }}гр
+                        {{ total_items }} штук{{ total_items|pluralize }},{{ cart.get_total_price }}грн
                     </a>
                 {% else %}
                     Ваша корзина пуста.

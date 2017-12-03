@@ -18,7 +18,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Регистрация успешна')
+                    return HttpResponseRedirect('../cart/templates/cart/detail.html')
                 else:
                     return HttpResponse('Пользователь отсутствует')
             else:
