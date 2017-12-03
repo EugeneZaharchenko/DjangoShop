@@ -104,8 +104,7 @@ USE_TZ = True
 
 PAYPAL_RECEIVER_EMAIL = 'j0nnyah80@gmail.com'
 PAYPAL_TEST = True
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
 
 STATIC_URL = '/static/'
 
@@ -113,3 +112,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
+
+LOGIN_REDIRECT_URL = 'shop'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
