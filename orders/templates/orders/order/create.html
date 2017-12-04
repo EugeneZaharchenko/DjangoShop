@@ -11,10 +11,10 @@
         <h3>Ваш заказ</h3>
         <ul>
             {% for item in cart %}
-                <li>{{ item.quantity }}x {{ item.product.name }} <span>${{ item.total_price }}</span></li>
+                <li>{{ item.quantity }}x {{ item.product.name }} <span> грн{{ item.total_price }}</span></li>
             {% endfor %}
         </ul>
-        <p>Total: ${{ cart.get_total_price }}</p>
+        <p>Всего: грн{{ cart.get_total_price }}</p>
     </div>
     
     <form action="." method="post" class="order-form">

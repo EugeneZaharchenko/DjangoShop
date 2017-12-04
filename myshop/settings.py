@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.core.urlresolvers import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'paypal.standard.ipn',
+    'payment',
+    'bootstrap3',
     'shop',
     'cart',
     'orders',
@@ -99,9 +103,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+PAYPAL_RECEIVER_EMAIL = 'j0nnyah80@gmail.com'
+PAYPAL_TEST = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 
@@ -109,3 +113,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
+
+LOGIN_REDIRECT_URL = 'login'
+LOGIN_URL = reverse_lazy('shop:login')
+LOGOUT_URL = reverse_lazy('shop:logout')
