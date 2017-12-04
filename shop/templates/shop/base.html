@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <title>{% block title %}Магазин{% endblock %}</title>
-    {% load bootstrap3 %}
-    <script src="{% bootstrap_jquery_url %}"></script>
-    {% bootstrap_javascript %}
+{#    {% load bootstrap3 %}#}
+{#    <script src="{% bootstrap_jquery_url %}"></script>#}
+{#    {% bootstrap_javascript %}#}
 
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
@@ -46,20 +46,22 @@
     </div>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
-<script>
-  $(document).ready(function() {
-    var videobackground = new $.backgroundVideo($('body'), {
-      "align": "centerXY",
-      "width": 1280,
-      "height": 720,
-      "path": "/static/media/",
-      "filename": "cloud",
-      "types": ["mp4","ogg","webm"],
-      "preload": true,
-      "autoplay": true,
-      "loop": true
-    });
-  });
-</script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
+    <script>
+      $(document).ready(function() {
+        var videobackground = new $.backgroundVideo($('body'), {
+          "align": "centerXY",
+          "width": 1280,
+          "height": 720,
+          "path": "/static/media/",
+          "filename": "q",
+          "types": ["mp4","ogg","webm"],
+          "preload": true,
+          "autoplay": true,
+          "loop": true
+        });
+      });
+    </script>
 </body>
 </html>
