@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+{#    <script src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js"></script>#}
     <title>{% block title %}Магазин{% endblock %}</title>
 {#    {% load bootstrap3 %}#}
 {#    <script src="{% bootstrap_jquery_url %}"></script>#}
@@ -44,8 +45,15 @@
         {% block content %}
         {% endblock %}
     </div>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
+
+
+{#Для загрузки файлов#}
+{#    <script>#}
+{#        UPLOADCARE_LOCALE = "ua";#}
+{#        UPLOADCARE_LIVE = false;#}
+{#        UPLOADCARE_PUBLIC_KEY = "92862fdbd5114f940ea1";#}
+{#    </script>#}
+
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
     <script>

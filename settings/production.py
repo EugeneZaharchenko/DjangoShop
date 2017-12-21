@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '97vqo*t)m)h_3pjjw4(=9m&kc*-_a*30icly_ifg$80jeg_cbz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -104,7 +104,7 @@ USE_L10N = True
 USE_TZ = True
 
 PAYPAL_RECEIVER_EMAIL = 'j0nnyah80@gmail.com'
-PAYPAL_TEST = False
+PAYPAL_TEST = True
 
 
 STATIC_URL = '/static/'
