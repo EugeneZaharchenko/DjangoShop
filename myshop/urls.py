@@ -15,6 +15,7 @@ urlpatterns = [
 
     url(r'^logout-then-login/$', logout_login, name='logout_then_login'),
     url(r'^', include('shop.urls', namespace='shop'), ),
+    url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
 ]
 
 if settings.DEBUG:

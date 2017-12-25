@@ -44,6 +44,9 @@ INSTALLED_APPS = (
     'shop',
     'cart',
     'orders',
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,6 +74,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.cart',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -117,3 +122,19 @@ CART_SESSION_ID = 'cart'
 LOGIN_REDIRECT_URL = 'login'
 LOGIN_URL = reverse_lazy('shop:login')
 LOGOUT_URL = reverse_lazy('shop:logout')
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+   'rest_framework_social_oauth2.backends.DjangoOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+# Facebook configuration
+SOCIAL_AUTH_FACEBOOK_KEY = '169163453833782'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ed97776a7bab25c22923a97c1e938260'
+
+# Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email'
+}
